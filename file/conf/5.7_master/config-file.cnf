@@ -1,0 +1,6 @@
+[mysqld]
+server-id         = 0001
+log-bin           = /var/log/mysql/mysql-bin.log
+binlog_format     = statement
+binlog_cache_size = 1M
+max_binlog_size   = 200M

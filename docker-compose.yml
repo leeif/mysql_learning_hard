@@ -1,0 +1,57 @@
+version: '3'
+networks:
+  test:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 10.1.0.0/24
+
+services:
+  #mysql 5.7 master
+  mysql57_master:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: "root"
+    volumes:
+      - ./file/conf/5.7_master:/etc/mysql/conf.d
+      - ./file/mysql_etc:/mysql_etc
+    networks:
+      test:
+        ipv4_address: 10.1.0.100
+
+  #mysql 5.7 slave
+  mysql57_slave:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: "root"
+    volumes:
+      - ./file/conf/5.7_slave:/etc/mysql/conf.d
+      - ./file/mysql_etc:/mysql_etc
+    networks:
+      test:
+        ipv4_address: 10.1.0.101
+  
+  #mysql 8.0 master
+  mysql80_master:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: "root"
+    volumes:
+      - ./file/conf/8.0_master:/etc/mysql/conf.d
+      - ./file/mysql_etc:/mysql_etc
+    networks:
+      test:
+        ipv4_address: 10.1.0.102
+
+  #mysql 8.0 slave
+  mysql80_slave:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: "root"
+    volumes:
+      - ./file/conf/8.0_slave:/etc/mysql/conf.d
+      - ./file/mysql_etc:/mysql_etc
+    networks:
+      test:
+        ipv4_address: 10.1.0.103

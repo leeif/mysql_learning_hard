@@ -1,0 +1,6 @@
+[mysqld]
+default_authentication_plugin= mysql_native_password
+server-id         = 0012
+binlog_format     = statement
+binlog_cache_size = 1M
+max_binlog_size   = 200M
