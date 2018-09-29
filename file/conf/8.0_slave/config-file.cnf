@@ -1,6 +1,10 @@
 [mysqld]
-default_authentication_plugin= mysql_native_password
 server-id         = 0012
-binlog_format     = statement
-binlog_cache_size = 1M
-max_binlog_size   = 200M
+ssl-ca=/mysql_etc/cert/ca.pem
+ssl-cert=/mysql_etc/cert/server-cert.pem
+ssl-key=/mysql_etc/cert/server-key.pem
+
+[client]
+ssl-ca=/mysql_etc/cert/ca.pem
+ssl-cert=/mysql_etc/cert/client-cert.pem
+ssl-key=/mysql_etc/cert/client-key.pem
