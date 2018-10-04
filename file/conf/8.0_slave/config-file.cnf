@@ -8,3 +8,4 @@ ssl-key=/mysql_etc/cert/server-key.pem
 ssl-ca=/mysql_etc/cert/ca.pem
 ssl-cert=/mysql_etc/cert/client-cert.pem
 ssl-key=/mysql_etc/cert/client-key.pem
+  
